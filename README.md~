@@ -7,7 +7,7 @@ Introduction
 
 Features
  -CCsecurity disabled to allow permanent root.
- -O3 optimized.
+ -O3 compiler optimized.
  -Ondemand CPU governor tweaked and enabled by default.
  -Intellidemand CPU governor.
  -Simple GPU governor enabled by default.
