@@ -18,7 +18,8 @@ config SUSPEND_FREEZER
 
 	  Turning OFF this setting is NOT recommended! If in doubt, say Y.
 
-
+<<<<<<< HEAD
+=======
 config HAS_WAKELOCK
 	bool
 	default y
@@ -34,7 +35,7 @@ config POWERSUSPEND
 	  Call early suspend handlers when the user requested sleep state
 	  changes.
 
-
+>>>>>>> 5a86d70... powersuspend: new PM kernel driver for Android w/o early_suspend
 config HIBERNATE_CALLBACKS
 	bool
 
