@@ -115,6 +115,12 @@ config CPU_FREQ_DEFAULT_GOV_INTELLIDEMAND
 	help
 	  Intellidemand by faux123.Ported from Nexus 5.
 
+config CPU_FREQ_DEFAULT_GOV_SMARTASSH3
+        bool "smartassH3"
+        select CPU_FREQ_GOV_SMARTASSH3
+        help
+         Use the CPUFreq governor 'slp' as default.
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -192,7 +198,6 @@ config CPU_FREQ_GOV_INTERACTIVE
 config CPU_FREQ_GOV_INTELLIDEMAND
 	tristate "'intellidemand' cpufreq governor"
 	depends on CPU_FREQ
-	select CPU_FREQ_GOV_INTELLIDEMAND
 	help
 	  Intellidemand by faux123.Ported from Nexus 5.
 
@@ -218,6 +223,51 @@ config CPU_FREQ_GOV_CONSERVATIVE
 	  For details, take a look at linux/Documentation/cpu-freq.
 
 	  If in doubt, say N.
+
+
+config CPU_FREQ_GOV_INTELLIDEMAND
+        tristate "'intellidemand' cpufreq policy governor"
+        select CPU_FREQ_TABLE
+        help
+          'intellidemand' - This driver adds a dynamic cpufreq policy governor.
+          The governor does a periodic polling and
+          changes frequency based on the CPU utilization.
+          The support for this governor depends on CPU capability to
+          do fast frequency switching (i.e, very low latency frequency
+          transitions). with browsing detection based on GPU loading
+
+          To compile this driver as a module, choose M here: the
+          module will be called cpufreq_ondemand.
+
+          For details, take a look at linux/Documentation/cpu-freq.
+
+          If in doubt, say N.
+
+config INTELLI_MAX_ACTIVE_FREQ
+	int "Max Active Freq for Intellidemand"
+	depends on CPU_FREQ_GOV_INTELLIDEMAND
+	default	2265600
+	help
+		Set default max active frequency for intellidemand
+
+config INTELLI_MAX_INACTIVE_FREQ
+	int "Max Inactive Freq for Intellidemand"
+	depends on CPU_FREQ_GOV_INTELLIDEMAND
+	default	1574400
+	help
+		Set default max inactive frequency for intellidemand
+
+config CPUFREQ_LIMIT_MAX_FREQ
+	bool "Limit Max Freq"
+	depends on CPU_FREQ_GOV_INTELLIDEMAND
+	help
+		Limit Max Freq while screen is on for Intellidemand governor
+
+config CPU_FREQ_GOV_SMARTASSH3
+        tristate "'smartassH3' cpufreq governor"
+        depends on CPU_FREQ
+        help
+                    'smartassH3' - a "smart" governor
 
 menu "x86 CPU frequency scaling drivers"
 depends on X86
