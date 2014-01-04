@@ -1,1 +1,1 @@
-#define UTS_RELEASE "3.4.0-perf-g5086eb7-dirty"
+#define UTS_RELEASE "3.4.0ninjakernelv001-g8ad65af-dirty"

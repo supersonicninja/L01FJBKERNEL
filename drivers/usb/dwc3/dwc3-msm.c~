@@ -2019,7 +2019,7 @@ static int dwc3_msm_suspend(struct dwc3_msm *mdwc)
 
 static int dwc3_msm_resume(struct dwc3_msm *mdwc)
 {
-	int ret;
+	int ret, rc;
 	bool dcp;
 	bool host_bus_suspend;
 
