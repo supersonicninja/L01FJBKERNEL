@@ -1,1 +1,1 @@
-#define UTS_RELEASE "3.4.0ninjakernelv070+"
+#define UTS_RELEASE "3.4.0ninjakernelv080+"
